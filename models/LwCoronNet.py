@@ -114,7 +114,7 @@ def add_gaussian_noise(img, mean=0, std=0.25):
 
 
 # Funzione di allenamento
-def train_net(model, train_loader, optimizer, criterion, epochs, save_dir='./training_results'):
+def train_net(model, train_loader, optimizer, criterion, epochs, save_dir='./training_results_undersampling'):
     # Creazione della cartella per salvare i modelli e grafici
     os.makedirs(save_dir, exist_ok=True)
 
