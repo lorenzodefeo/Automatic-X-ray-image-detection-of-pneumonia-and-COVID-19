@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-12">
+            <h1>Automatic X-ray image detection of pneumonia and COVID-19</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <h2>Obiettivo del Progetto</h2>
+                <p>
+                    L'obiettivo del presente progetto è lo sviluppo di un sistema avanzato basato su
+                    tecniche di apprendimento automatico e visione artificiale, finalizzato alla
+                    discriminazione diagnostica su immagini radiografiche (raggi X) per identificare
+                    lo stato di salute del soggetto. In particolare, il sistema è progettato per
+                    distinguere tra soggetti sani, affetti da polmonite o positivi al COVID-19.
+                </p>
+
+                <h3>Funzionamento del Sistema</h3>
+                <p>
+                    Il sistema si basa su una pipeline di elaborazione delle immagini strutturata in diverse fasi. La prima fase comprende l'acquisizione dell'immagine radiografica, seguita da un pre-processamento per migliorare la qualità e la leggibilità del dato. Successivamente, il sistema applica un algoritmo di classificazione basato su reti neurali profonde (Deep Learning), addestrato su un ampio dataset annotato per riconoscere con elevata precisione le diverse condizioni cliniche.
+                </p>
+
+                <h3>Applicazioni</h3>
+                <p>
+                    L'algoritmo proposto rappresenta un potenziale strumento di supporto diagnostico per i professionisti sanitari. Grazie alla sua capacità di analizzare rapidamente immagini radiografiche, il sistema può essere impiegato come fase iniziale di valutazione clinica, offrendo un'indicazione preliminare utile al medico per orientare decisioni successive o priorizzare i casi più critici.
+                </p>
+
+                <h3>Architettura del Sistema</h3>
+                <p>
+                    L'architettura del sistema è basata su una rete neurale convoluzionale (Convolutional Neural Network, CNN), progettata e ottimizzata per l'analisi delle immagini radiografiche. Il modello è stato addestrato su un ampio dataset costituito da immagini radiografiche di soggetti sani e pazienti affetti da polmonite o COVID-19, garantendo robustezza e accuratezza nelle predizioni. Per ulteriori dettagli sull'implementazione e sui dataset utilizzati, si rimanda alla documentazione tecnica disponibile sul repository GitHub di riferimento.
+                </p>
+            </div>
+
+        </div>
+        <hr>
+    </div>
+</div>
+{% endblock %}
