@@ -96,4 +96,5 @@ class PhotoMaskForm(FlaskForm):
                       validators=[
                           FileAllowed(['jpg', 'jpeg', 'png'], 'The allowed extensions are: .jpg, .jpeg and .png')])
 
-    submit = SubmitField('Image Classification')
+    submit = SubmitField('Classification')
+    cancel = SubmitField('Cancel')

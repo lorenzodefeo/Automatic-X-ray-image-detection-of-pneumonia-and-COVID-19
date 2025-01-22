@@ -11,26 +11,18 @@
     <div class="container-fluid">
 
         <div class="row">
-            <h4>Cos'è l'Image Classification</h4>
-        </div>
-        <div class="row">
-            <p>
-                ----
-            </p>
-        </div>
-        <div class="row">
             <h4>Come funziona?</h4>
         </div>
         <div class="row">
             <p>
-                Il processo è semplice: carica un'immagine statica utilizzando l'interfaccia dedicata; una volta caricata l'algoritmo l'analizzerà automaticamente l'immagine e la classificherà.
+                L'utente può caricare un'immagine statica tramite l'interfaccia dedicata. Successivamente, l'algoritmo esegue un'analisi automatica dell'immagine e ne fornisce la classificazione.
             </p>
         </div>
 
         <hr>
         <div id="frame_container" class="row">
-            <div class="col-12">
-                <img src="/static/images/photograph_mask_detection.png" id="image-preview" style="max-width:600px"
+             <div class="col-12">
+                <img src="" id="image-preview" style="max-width:600px; display: none !important;"
                      class="img-thumbnail img-fluid mx-auto d-block">
             </div>
         </div>
@@ -62,12 +54,13 @@
                             {% endif %}
                         </div>
                     </div>
-
                     <div class="row mt-3">
                         <div class="col-12 d-flex justify-content-center">
-                            {{ form.submit(class="btn btn-primary", id ="submit", disabled=True)}}
+                            {{ form.submit(class="btn btn-primary mx-2", id="submit", disabled=True) }}
+                            {{ form.cancel(class="btn btn-danger mx-2", id="cancel", disabled=True) }}
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -82,6 +75,12 @@ var previewImage = function(event) {
     preview.src = URL.createObjectURL(event.target.files[0]);
     preview.style.display = "block";
     $("#submit").prop("disabled", false);
+
+    $("#cancel").prop("disabled", false);
+    // $("#form-row").remove();
+    $("#form-row").css("display", "none");
+    $("#detection-result").text("Immagine caricata!");
+
 };
 
 $(document).ready(function() {
@@ -90,6 +89,14 @@ $(document).ready(function() {
 });
 
 $(function() {
+    $("#cancel").each(function (index) {
+        $(this).on('click', function (e) {
+           e.preventDefault();
+           location.reload(); // reload the current page
+        });
+
+    });
+
     $("#submit").each(function(index) {
         $(this).on('click', function(e) {
             e.preventDefault();
@@ -118,11 +125,14 @@ $(function() {
                 success: function(response) {
                     // Aggiorna l'immagine e la classe
                     $("#image-preview").attr("src", response.image);
+
                     $("#detection-result").text("Risultato: " + response.label);
 
                     // Cambia il pulsante di invio
                     $("#submit").replaceWith('<button class="btn btn-success"><i class="fa fa-check-circle" onclick="location.reload()" aria-hidden="true"></i> Done!</button>');
                     $("#form-row").remove();
+
+                    $("#cancel").remove();
                 },
                 error: function(response) {
                     alert("Errore durante l'elaborazione dell'immagine.");
