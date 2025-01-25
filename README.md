@@ -19,7 +19,7 @@ La rete che è stata utilizzata è la seguente:
 
 [<img src="app/static/images/net.png" alt="Rete" width="400">](app/static/images/net.png)
 
-Per migliorare la generalizzazione del modello, ho utilizzato tecniche di data augmentation (ridimensionamento, rotazione, flip orizzontali, ecc.) durante l'allenamento. Questo approccio ha potenziato la capacità del modello di rilevare mascherine in condizioni diverse.
+Per migliorare la generalizzazione del modello, ho utilizzato tecniche di data augmentation (ridimensionamento, rotazione, flip orizzontali, ecc.) durante l'allenamento. Questo approccio ha potenziato la capacità del modello di clafficare le immagini in condizioni diverse.
 
 ---
 ## Risultati del modello
