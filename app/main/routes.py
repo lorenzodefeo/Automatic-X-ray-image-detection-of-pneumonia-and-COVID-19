@@ -29,7 +29,7 @@ def allowed_file(file):
     return extention_file in ['jpg', 'jpeg', 'png']
 
 
-@main_blueprits.route("/image-mask-detector", methods=["GET", "POST"])
+@main_blueprits.route("/image-detector", methods=["GET", "POST"])
 def image_mask_detection():
     return render_template("image_detector.html",
                            form=PhotoMaskForm())
